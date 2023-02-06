@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "bic_3_1_info.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
