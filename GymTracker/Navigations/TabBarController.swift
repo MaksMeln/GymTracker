@@ -7,10 +7,10 @@
 
 import UIKit
 
-enum Tabs : Int {
+enum Tabs : Int , CaseIterable{
     case userInfo
-    case history
-    case startTraining
+    case calories
+    case startWorkout
     case exercise
     case settings
 }
@@ -32,63 +32,42 @@ class TabBarController: UITabBarController {
     }
 
     
-    func configureTabBar() {
-        tabBar.tintColor = Resourses.Color.activeTabBar
-        tabBar.barTintColor = Resourses.Color.inactive
-        tabBar.backgroundColor = Resourses.Color.tabBar
-        tabBar.layer.borderColor = Resourses.Color.separator.cgColor
+   private func configureTabBar() {
+        tabBar.tintColor = Resourses.Colors.activeTabBar
+        tabBar.barTintColor = Resourses.Colors.inactive
+        tabBar.backgroundColor = Resourses.Colors.tabBar
+        tabBar.layer.borderColor = Resourses.Colors.separator.cgColor
         tabBar.layer.borderWidth = 0.5
         tabBar.layer.masksToBounds = true
+        tabBar.itemPositioning = .fill
         
         if #available(iOS 15.0, *) {
                let appearance = UITabBarAppearance()
                appearance.configureWithOpaqueBackground()
-               appearance.backgroundColor = Resourses.Color.tabBar
+               appearance.backgroundColor = Resourses.Colors.tabBar
                UITabBar.appearance().standardAppearance = appearance
                UITabBar.appearance().scrollEdgeAppearance = UITabBar.appearance().standardAppearance
            }
        
-        
-        let userInfoController = UserInfoController()
-        let historyController = HistoryController()
-        let startTrainingController = StartTrainingController()
-        let exerciseController = ExerciseController()
-        let settingsController = SettingsController()
-        
-        let userInfoNavigation = NavBarController(rootViewController: userInfoController)
-        let historyNavigation = NavBarController(rootViewController: historyController)
-        let startTrainingNavigation = NavBarController(rootViewController: startTrainingController)
-        let exerciseNavigation = NavBarController(rootViewController: exerciseController)
-        let settingsNavigation = NavBarController(rootViewController: settingsController)
-        
-        
-        userInfoNavigation.tabBarItem = UITabBarItem(title: Resourses.Strings.TabBar.userInfo,
-                                                     image: Resourses.Images.TabBar.userInfo,
-                                                     tag: Tabs.userInfo.rawValue)
-        historyNavigation.tabBarItem = UITabBarItem(title: Resourses.Strings.TabBar.history,
-                                                    image: Resourses.Images.TabBar.history,
-                                                    tag: Tabs.history.rawValue)
-        
-        startTrainingNavigation.tabBarItem = UITabBarItem(title: Resourses.Strings.TabBar.startTraining,
-                                                          image: Resourses.Images.TabBar.startTraining,
-                                                          tag: Tabs.startTraining.rawValue)
-        
-        exerciseNavigation.tabBarItem = UITabBarItem(title: Resourses.Strings.TabBar.exercise,
-                                                     image: Resourses.Images.TabBar.exercise,
-                                                     tag: Tabs.exercise.rawValue)
-        
-        settingsNavigation.tabBarItem = UITabBarItem(title: Resourses.Strings.TabBar.settings,
-                                                     image: Resourses.Images.TabBar.settings,
-                                                     tag: Tabs.settings.rawValue)
-     
-        
-        setViewControllers([
-            userInfoNavigation,
-            historyNavigation,
-            startTrainingNavigation,
-            exerciseNavigation,
-            settingsNavigation
-        ], animated: false)
+        let controllers : [NavBarController] = Tabs.allCases.map { tab in
+            let controller = NavBarController(rootViewController: getController(for: tab))
+            controller.tabBarItem = UITabBarItem(title: Resourses.Strings.TabBar.title(for: tab) ,
+                                                 image: Resourses.Images.TabBar.icon(for: tab),
+                                                 tag: tab.rawValue)
+            return controller
+        }
+        setViewControllers(controllers, animated: false)
     }
-    
+        
+        private func getController(for tab: Tabs) -> GTBaseController {
+            switch tab {
+            case .userInfo:  return UserInfoController()
+            case .calories: return CaloriesController()
+            case .startWorkout: return StartWorkoutController()
+            case .exercise:  return ExerciseController()
+            case .settings: return SettingsController()
+
+        }
+    }
 }
+   

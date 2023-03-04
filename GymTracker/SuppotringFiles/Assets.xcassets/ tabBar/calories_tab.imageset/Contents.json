@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "calories_tab.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -7,13 +7,14 @@
 
 import UIKit
 
-class SettingsController:  BaseController {
+class SettingsController:  GTBaseController {
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = Resourses.Strings.NavBar.settings
+        title = Resourses.Strings.TabBar.title(for: .settings)
+        navigationController?.navigationBar.addBottomBorder()
         
     }
     
