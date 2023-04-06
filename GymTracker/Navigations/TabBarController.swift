@@ -20,7 +20,7 @@ class TabBarController: UITabBarController {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         configureTabBar()
-        switchTo(tab: .exercise)
+        switchTo(tab: .startWorkout)
     }
     
     required init?(coder: NSCoder) {
@@ -59,7 +59,7 @@ class TabBarController: UITabBarController {
         setViewControllers(controllers, animated: false)
     }
         
-        private func getController(for tab: Tabs) -> GTBaseController {
+        private func getController(for tab: Tabs) -> GTBaseViewController {
             switch tab {
             case .userInfo:  return UserInfoController()
             case .calories: return CaloriesController()

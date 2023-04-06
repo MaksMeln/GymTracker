@@ -11,7 +11,6 @@ enum ResUserInfo {
     
     enum Images {
         static let measurements = UIImage(named: "measurements")
-        
     }
     
     enum Measurements {
@@ -35,7 +34,6 @@ enum ResUserInfo {
                 enum Name {
                     static let growth = "Your Growth"
                     static let bodyWeigt = "Body Weight"
-                    
                 }
                 
                 enum Placecholder {
@@ -51,6 +49,4 @@ enum ResUserInfo {
             }
         }
     }
-    
-    
 }

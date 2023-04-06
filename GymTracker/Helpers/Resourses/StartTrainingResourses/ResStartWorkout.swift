@@ -10,7 +10,10 @@ import UIKit
 enum ResStartWorkout {
     enum Images {
         static let startEmptyWorkout = UIImage(named: "startEmptyWorkout")
-        static let moreInfo = UIImage(named: "moreInfo")
+        static let moreInfoHorizontal = UIImage(named: "moreInfo_horizontal")
+        static let moreInfoVertical = UIImage(named: "moreInfo_vertical")
+        
+        
         static let addExercise = UIImage(named: "addExercise")
         static let exercise = UIImage(named: "exerciseRoutine")
         static let newRoutine = UIImage(named: "newRoutine")
@@ -43,7 +46,7 @@ enum ResStartWorkout {
             static let set = "SET"
             static let sets = "Sets"
             static let volume = "Volume"
-            static let kg = "kg"
+            static let kg = "KG"
             static let reps = "REPS"
             
         }
@@ -57,6 +60,9 @@ enum ResStartWorkout {
             static let subtitle = "Get started by adding an exercise to your routine."
             static let title = "Routine title"
             static let addNotes = "Add notes here..."
+            static let addRoutinesNotes = "Add routine notes here"
+            
+            
         }
     }
     

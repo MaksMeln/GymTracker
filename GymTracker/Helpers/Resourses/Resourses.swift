@@ -16,13 +16,10 @@ enum Resourses {
     //MARK: - Color's
     enum Colors {
         
-        
         static let active = UIColor(hexString: "#3F81E3")
         static let inactive = UIColor(hexString: "#828384")
         static let secondary = UIColor(hexString: "#F0F3FF")
        
-        
-        
         static let tabBar = UIColor(hexString: "#293136")
         static let activeTabBar = UIColor(hexString: "#FEFFFE")
         static let separator = UIColor(hexString: "#DEDEDE")
@@ -30,22 +27,17 @@ enum Resourses {
         static let defaultColor = UIColor(hexString: "#000000")
         static let cellSelected = UIColor(hexString: "#EAEAEA")
         static let startWorkoutLabel = UIColor(hexString: "#9B9B9B")
-
-        
-        
         
         //color for Button
         static let borderColor = UIColor(hexString: "#E0E0E0")
         static let buttonBackground = UIColor(hexString: "#3F81E3")
         static let buttonYouTubeBackground = UIColor(hexString: "#F7F7F7")
-        
-       
+        static let buttonAddSet = UIColor(hexString: "F3F3F3")
 
         enum Calories {
             static let buttonGreenBackground = UIColor(hexString: "#439951")
             static let placecholder = UIColor(hexString: "#9B9B9B")
             static let resultContainer = UIColor(hexString: "#E0E0E0")
-            
         }
         
         //color exercise
@@ -59,9 +51,8 @@ enum Resourses {
         enum UserInfo {
             static let backgroundCell = UIColor(hexString: "#D9D9D9")
         }
-        
-        
     }
+    
     //MARK: - String's
     enum Strings {
         enum TabBar {

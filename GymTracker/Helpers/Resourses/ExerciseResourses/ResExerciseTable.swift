@@ -123,17 +123,5 @@ enum ResExerciseTable {
         static let chest = "Chest"
         static let triceps = "Triceps"
         static let allExercise = "All"
-      
-        
-        
     }
 }
-
-
-
-
-
-
-
-
-

@@ -18,11 +18,9 @@ extension UIView {
         self.setDimensions(height: height, width: width)
     }
     
-    
 // EXTENSION WITH CONTENTSIZE
     convenience init(contentSize: CGSize) {
         self.init()
-        
         self.frame.size = contentSize
     }
     
@@ -61,11 +59,14 @@ extension UIView {
         UIView.animate(withDuration: 0.15) { self.alpha = 1 }
     }
 
-    @objc func setupView(_ view: UIView) {
-        addSubview(view)
-        view.translatesAutoresizingMaskIntoConstraints = false
-    }
     
+    func addSubviews(_ views: UIView...) {
+        views.forEach({
+            addSubview($0)
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        })
+    }
+        
     func setDimensions(height: CGFloat, width: CGFloat) {
         translatesAutoresizingMaskIntoConstraints = false
         heightAnchor.constraint(equalToConstant: height).isActive = true
@@ -101,3 +102,20 @@ extension UIViewController {
 }
 
 
+
+//MARK: - UITableView
+extension UIView {
+    
+    func pin(to superView: UIView) {
+        
+        translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            topAnchor.constraint(equalTo: superView.topAnchor),
+            trailingAnchor.constraint(equalTo: superView.trailingAnchor),
+            leadingAnchor.constraint(equalTo: superView.leadingAnchor),
+            bottomAnchor.constraint(equalTo: superView.bottomAnchor)
+        ])
+        
+    }
+}
